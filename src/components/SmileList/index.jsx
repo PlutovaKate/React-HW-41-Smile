@@ -1,16 +1,18 @@
+import React from "react";
 import SmileCard from "../SmileCard";
-
-function SmileList() {
-  return (
-    <ul className="row ">
-      <SmileCard />
-      <SmileCard />
-      <SmileCard />
-      <SmileCard />
-      <SmileCard />
-      <SmileCard />
-    </ul>
-  );
+class SmileList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <ul className="row ">
+        {this.props.smiles.map((smile) => (
+          <SmileCard key={smile.id} id={smile.id} image={smile.img} />
+        ))}
+      </ul>
+    );
+  }
 }
 
 export default SmileList;
